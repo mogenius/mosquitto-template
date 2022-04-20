@@ -6,6 +6,8 @@ EXPOSE 1883
 
 COPY mosquitto.conf /mosquitto/config/mosquitto.conf
 
+USER 1000
+
 RUN mosquitto_passwd -b -c /mosquitto/config/passwd mogenius mogenius
 
 # PERSITENCE

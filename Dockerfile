@@ -13,6 +13,7 @@ COPY entrypoint.sh .
 USER 1000
 
 ENTRYPOINT ["sh", "/src/entrypoint.sh"]
+CMD ["/usr/sbin/mosquitto","-c","/mosquitto/config/mosquitto.conf"]
 
 # PERSITENCE
 # /mosquitto/config

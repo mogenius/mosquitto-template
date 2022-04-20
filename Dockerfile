@@ -7,13 +7,12 @@ EXPOSE 1883
 WORKDIR /src
 
 COPY mosquitto.conf .
-
-RUN mosquitto_passwd -b -c /mosquitto/config/passwd mogenius mogenius
+COPY passwd .
+COPY entrypoint.sh .
 
 USER 1000
 
-COPY entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["sh", "/entrypoint.sh"]
+ENTRYPOINT ["sh", "/src/entrypoint.sh"]
 
 # PERSITENCE
 # /mosquitto/config
